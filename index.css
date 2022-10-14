@@ -23,7 +23,7 @@ header{
     box-shadow: var(--shadows);
 }
 
-.nav{
+.header{
     display: flex;
     margin: 0 auto;
     justify-content: space-between;
@@ -33,7 +33,12 @@ header{
     max-width: var(--content-with)    
 }
 
-.nav-rigth{
+.header-search{
+    display: flex;
+    gap: 10px;
+}
+
+.header-rigth{
     display: flex;
     gap: 20px;
 }
@@ -96,9 +101,7 @@ header{
     background-color: transparent;
 }
 
-
-
-@media(max-width: 768px){
+@media(max-width: 600px){
     .cards-container{
         grid-template-columns: repeat(1,auto);
     } 
