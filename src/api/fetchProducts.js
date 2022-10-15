@@ -1,6 +1,8 @@
 import { get } from "./shared/get.js";
 
-export async function fetchProductsByCategory() {
-  const products = await get("/products?category=6&q=p");
+export async function fetchProducts({ categoryId, valueSearch }) {
+  const products = await get(
+    `/products?category=${categoryId}&q=${valueSearch}`
+  );
   return products;
 }
