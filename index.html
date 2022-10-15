@@ -21,15 +21,23 @@
     <title>Document</title>
   </head>
   <body>
+    <div id="loading-container">
+      <section class="spin-content">
+        <div class="spin"></div>
+      </section>
+    </div>
     <div class="main">
-      <header>
+      <header id="header-container" class="inactive">
         <div class="header">
           <div class="header-left">
-            <h3>Bsale Test</h3>
+            <div id="mobile-content" class="inactive">
+              <h2>BT</h2>
+            </div>
+            <h3 class="desktop-name">Bsale Test</h3>
             <p>store</p>
           </div>
           <div class="header-search">
-            <div class="box">
+            <div class="box-search">
               <i class="fa-solid fa-magnifying-glass"></i>
               <input
                 type="text"
@@ -38,14 +46,9 @@
                 id="search-text"
               />
             </div>
-            <select name="combo" id="categories"></select>
-          </div>
-          <div class="header-rigth">
-            <button class="icon-button">
-              <div class="icon">
-                <i class="fa-solid fa-cart-shopping"></i>
-              </div>
-            </button>
+            <div class="box-select">
+              <select name="combo" id="categories"></select>
+            </div>
           </div>
         </div>
       </header>

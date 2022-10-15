@@ -5,6 +5,8 @@ const productCard = document.getElementById("card-container");
 const categoryInput = document.getElementById("categories");
 const textInput = document.getElementById("search-text");
 const contentNoFound = document.getElementById("content-no-found");
+const loadingContainer = document.getElementById("loading-container");
+const header = document.getElementById("header-container");
 
 async function getProducts() {
   const text = textInput.value;
@@ -19,6 +21,9 @@ async function getProducts() {
 
 async function render() {
   const products = await getProducts();
+  header.classList.remove("inactive");
+  loadingContainer.classList.add("loading");
+
   if (textInput.value.length != 0 && products.length == 0) {
     contentNoFound.classList.remove("inactive");
     productCard.classList.add("inactive");
@@ -70,7 +75,6 @@ categoryInput.addEventListener("change", render);
         `
         )}    
     `;
-
     categoryInput.innerHTML = viewOptions;
     render();
   } catch (error) {
