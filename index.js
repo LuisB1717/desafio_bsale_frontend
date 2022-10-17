@@ -1,5 +1,5 @@
 import { fetchCategories } from "./src/api/fetchCategories.js";
-import { fetchProducts } from "./src/API/fetchProducts.js";
+import { fetchProducts } from "./src/api/fetchProducts.js";
 
 const productCard = document.getElementById("card-container");
 const categoryInput = document.getElementById("categories");
