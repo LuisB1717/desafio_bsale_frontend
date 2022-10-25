@@ -81,3 +81,15 @@ categoryInput.addEventListener("change", render);
     console.log(error);
   }
 })();
+
+function debounce(callback, time = 300) {
+  let timeoutId;
+  return function () {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      callback();
+    }, time);
+  };
+}
+
+const renderDebounced = debounce(render);
