@@ -21,6 +21,7 @@ async function getProducts() {
   return products;
 }
 
+//Renderiza los productos de la API en un contenedor HTML
 async function render() {
   const products = await getProducts();
   header.classList.remove("inactive");
@@ -41,8 +42,8 @@ async function render() {
                 <div class="product-card" id="card">
                 <div class="card-content">
                   <img
-                    src="${product.url_image || img404} "
-                    alt=""
+                    src="${product.url_image || img404}"
+                    alt="Imagen del producto"
                   />
                   <p>${product.name}</p>
                   <div class="container-info">
@@ -64,9 +65,11 @@ async function render() {
   }
 }
 
+// Cargar categorías
 (async () => {
   try {
     const categories = await fetchCategories();
+    // Agregar categoria "todos" como la primera opción del array
     categories.unshift({ id: "0", name: "todos" });
 
     const viewOptions = `
@@ -83,6 +86,11 @@ async function render() {
   }
 })();
 
+/**
+ * Ejecuta el callback después de un delay
+ * @param {callback} function
+ * @param {time} number
+ */
 function debounce(callback, time = 300) {
   let timeoutId;
   return function () {
