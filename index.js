@@ -8,6 +8,8 @@ const contentNoFound = document.getElementById("content-no-found");
 const loadingContainer = document.getElementById("loading-container");
 const header = document.getElementById("header-container");
 
+const img404 = "/img/404.jpg";
+
 async function getProducts() {
   const text = textInput.value;
   const category = categoryInput.value;
@@ -39,7 +41,7 @@ async function render() {
                 <div class="product-card" id="card">
                 <div class="card-content">
                   <img
-                    src="${product.url_image}"
+                    src="${product.url_image || img404} "
                     alt=""
                   />
                   <p>${product.name}</p>
@@ -62,12 +64,11 @@ async function render() {
   }
 }
 
-textInput.addEventListener("keyup", render);
-categoryInput.addEventListener("change", render);
-
 (async () => {
   try {
     const categories = await fetchCategories();
+    categories.unshift({ id: "0", name: "todos" });
+
     const viewOptions = `
         ${categories.map(
           (category) => `
@@ -93,3 +94,10 @@ function debounce(callback, time = 300) {
 }
 
 const renderDebounced = debounce(render);
+
+textInput.addEventListener("keyup", () => {
+  categoryInput.value = "0";
+  renderDebounced();
+});
+
+categoryInput.addEventListener("change", render);
