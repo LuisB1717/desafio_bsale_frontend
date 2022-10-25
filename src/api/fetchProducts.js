@@ -3,8 +3,8 @@ import { get } from "./shared/get.js";
 /**
  * Obtener todos los productos o por categoría desde la API.
  * @param {filters} object
- * @param {categoryId} string
- * @param {valueSearch} string
+ * @param {filters.categoryId} string
+ * @param {filters.valueSearch} string
  */
 export async function fetchProducts({ categoryId, valueSearch }) {
   const modifier = categoryId == "0" ? "" : `&category=${categoryId}`;
