@@ -58,7 +58,6 @@ async function render() {
               </div>
               `
                 )
-                .slice(0, products.length)
                 .join("")}    
           `;
     productCard.innerHTML = viewCard;
